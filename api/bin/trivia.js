@@ -1,1 +1,1 @@
-# Contains functions that call trivia API to get questions
+// Contains functions that call trivia API to get questions

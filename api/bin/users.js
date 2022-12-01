@@ -1,1 +1,1 @@
-# Functions that update user database
+// Functions that update user database
