@@ -1,9 +1,10 @@
+const username = document.getElementById('username');
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
-const progressText = document.getElementById('progressText');
+//const progressText = document.getElementById('progressText');
 const scoreText = document.getElementById('score');
-const progressBarFull = document.getElementById('progressBarFull');
-const loader = document.getElementById('loader');
+//const progressBarFull = document.getElementById('progressBarFull');
+//const loader = document.getElementById('loader');
 const game = document.getElementById('game');
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -47,7 +48,7 @@ fetch(
     });
 
 //CONSTANTS
-const CORRECT_BONUS = 10;
+const CORRECT_BONUS = 100;
 const MAX_QUESTIONS = availableQuesions.size;
 
 startGame = () => {
@@ -66,11 +67,11 @@ getNewQuestion = () => {
         return window.location.assign('end.html');
     }
     questionCounter++;
-    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+    //progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
     //Update the progress bar
-    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+    //progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-    const questionIndex = Math.floor(Math.random() * availableQuesions.length);
+    const questionIndex = Math.floor(Math.random() * availableQuesions.length); //prevent repeated questions
     currentQuestion = availableQuesions[questionIndex];
     question.innerHTML = currentQuestion.question;
 
@@ -83,7 +84,7 @@ getNewQuestion = () => {
     acceptingAnswers = true;
 };
 
-choices.forEach((choice) => {
+choices.forEach((choice) => { //determine if answer is correct or incorrect
     choice.addEventListener('click', (e) => {
         if (!acceptingAnswers) return;
 
@@ -107,7 +108,8 @@ choices.forEach((choice) => {
     });
 });
 
-incrementScore = (num) => {
+incrementScore = (num) => { //update scores
     score += num;
     scoreText.innerText = score;
+    
 };
