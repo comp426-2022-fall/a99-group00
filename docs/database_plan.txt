@@ -5,7 +5,21 @@ Columns:
 - created_at (datetime) (inserted automatically)
 - updated_at (datetime) (updated automatically)
 
-SQL Table Structure
+SQL Table Structure:
+
+CREATE TABLE `users`
+(
+  `username`          VARCHAR(255) NOT NULL ,
+  `number_attempts` INT NOT NULL DEFAULT 0,
+  `number_correct` INT NOT NULL DEFAULT 0,
+  `created_at`    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `updated_at`    DATETIME on UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  PRIMARY KEY (`username`)
+)
+
+Database Host info
+- Created free mysql databse for testing at db4free.net
+- Login info in api/lib/db.js
 
 
 Example SQL queries
