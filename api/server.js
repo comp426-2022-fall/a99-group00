@@ -3,12 +3,14 @@
 import { execute } from "./lib/db.js";
 import express from 'express';
 import parseArgs from 'minimist';
+import cors from 'cors';
 
 const args = parseArgs(process.argv.slice(2));
 const port = args.port || 9000;
 
 let app = express();
 app.use(express.urlencoded({extended:true}));
+app.use(cors());
 
 // Helper function used to get specified user's data
 async function get_user(username) {
