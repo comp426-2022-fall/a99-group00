@@ -1,14 +1,16 @@
-#highScoresList {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 4rem;
-  }
-  
-  .high-score {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .high-score:hover {
-    transform: scale(1.025);
-  }
+table, th, td 
+{
+  border: solid 1px #FF5B5B;
+  width: 100%;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+th { 
+  font-weight:bold;
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  font-size: 20px;
+}
