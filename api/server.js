@@ -12,39 +12,50 @@ app.use(express.urlencoded({extended:true}));
 
 // Root endpoint message for testing
 app.get('/app/', (req, res) => {
-    res.status(200).send("This message is from the api root endpoint!");
+    res.status(200).send("This message is from the api root path!");
 });
 
-// GET: get user info
-app.get('/app/users/:user', async(req, res) => {
-    const query = `SELECT * FROM users WHERE username='${req.params.user}'`;
+// GET: get specified user info
+app.get('/app/users/:username', async(req, res) => {
+    const query = `SELECT * FROM users WHERE username='${req.params.username}'`;
     const result = await execute(query);
-    res.status(200).send(result);
+
+    const output = {
+        exists: false,
+        user: null,
+    }
+
+    if (result.length == 1) {
+        output.exists = true;
+        output.user = result[0];
+    }
+    
+    res.status(200).send(output);
 });
 
-// POST: create new user
-app.post('/app/users/:user', async(req, res) => {
-    const query = `INSERT INTO users(username) VALUES ('${req.params.user}')`;
+// POST: create new user with specified username
+app.post('/app/users/:username', async(req, res) => {
+    const query = `INSERT INTO users(username) VALUES ('${req.params.username}')`;
     const result = await execute(query);
     res.status(200).send(result);
 });
 
 // PATCH: update score/last access date of user
-app.patch('/app/users/:user/correct', async(req, res) => {
-    const query = `UPDATE users SET number_attempts=number_attempts+1, number_correct=number_correct+1 WHERE username = '${req.params.user}'`;
+app.patch('/app/users/:username/correct', async(req, res) => {
+    const query = `UPDATE users SET number_attempts=number_attempts+1, number_correct=number_correct+1 WHERE username = '${req.params.username}'`;
     const result = await execute(query);
     res.status(200).send(result);
 });
 
-app.patch('/app/users/:user/incorrect', async(req, res) => {
-    const query = `UPDATE users SET number_attempts=number_attempts+1 WHERE username = '${req.params.user}'`;
+app.patch('/app/users/:username/incorrect', async(req, res) => {
+    const query = `UPDATE users SET number_attempts=number_attempts+1 WHERE username = '${req.params.username}'`;
     const result = await execute(query);
     res.status(200).send(result);
 });
 
 // DELETE: delete user from database
-app.delete('/app/users/:user', async(req, res) => {
-    const query = `DELETE FROM users WHERE users.username = '${req.params.user}'`;
+app.delete('/app/users/:username', async(req, res) => {
+    const query = `DELETE FROM users WHERE users.username = '${req.params.username}'`;
     const result = await execute(query);
     res.status(200).send(result);
 });
@@ -56,15 +67,10 @@ app.get('/app/leaderboard', async(req, res) => {
     res.status(200).send(result);
 });
 
-// GET: get a question from trivia DB API
-app.get('/app/trivia', (req, res) => {
-
-});
-
 // Undefined paths
 app.get("*", (req, res) => {
     res.status(404).send("404 NOT FOUND");
-  });
+});
 
 app.listen(port);
 console.log(`Listening at http://localhost:${port}`);
