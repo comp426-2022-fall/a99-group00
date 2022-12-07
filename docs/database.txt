@@ -27,4 +27,4 @@ DELETE FROM users WHERE users.username = 'Alan'
 SELECT * FROM users WHERE username='Alan'
 
 - Get top 5 users by correct answers
-SELECT * FROM users ORDER BY correct_answers DESC LIMIT 5;
+SELECT * FROM users ORDER BY number_correct DESC LIMIT 5;

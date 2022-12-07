@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { execute } from "./lib/db.js";
-
 import express from 'express';
 import parseArgs from 'minimist';
 
@@ -51,8 +50,10 @@ app.delete('/app/users/:user', async(req, res) => {
 });
 
 // GET: get 5 top scoring users
-app.get('/app/users/leaderboard', (req, res) => {
-
+app.get('/app/leaderboard', async(req, res) => {
+    const query = "SELECT * FROM users ORDER BY number_correct DESC LIMIT 5";
+    const result = await execute(query);
+    res.status(200).send(result);
 });
 
 // GET: get a question from trivia DB API
@@ -60,5 +61,10 @@ app.get('/app/trivia', (req, res) => {
 
 });
 
+// Undefined paths
+app.get("*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+  });
+
 app.listen(port);
-console.log(`Listening on port ${port}`);
+console.log(`Listening at http://localhost:${port}`);
