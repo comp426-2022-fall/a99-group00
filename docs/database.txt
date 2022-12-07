@@ -1,0 +1,30 @@
+Columns:
+- Username (unique ID)
+- number_attempts
+- number_correct
+- created_at (datetime) (inserted automatically)
+- updated_at (datetime) (updated automatically)
+
+SQL Table Structure
+
+
+Example SQL queries
+
+- Create New user with specified number of points
+INSERT INTO `users`(username, number_attempts, number_correct) 
+VALUES ('Alan', 5, 5)
+
+- Create New user with specified number of points with default 0 points
+INSERT INTO users(username) VALUES ('Alan')
+
+- Update User points
+UPDATE users SET number_attempts=number_attempts+1, number_correct=number_correct+1 WHERE username = 'Alan'
+
+- Delete User
+DELETE FROM users WHERE users.username = 'Alan'
+
+- Get user info with username
+SELECT * FROM users WHERE username='Alan'
+
+- Get top 5 users by correct answers
+SELECT * FROM users ORDER BY correct_answers DESC LIMIT 5;
