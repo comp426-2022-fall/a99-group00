@@ -1,0 +1,43 @@
+Three Pages
+1. index/login page
+2. game page
+3. leaderboard page
+
+Index/Login Page
+- Text Box: to insert name
+- "Play" button
+    - Check if user exists (GET endpoint)
+    - If user exists: Get previous score and set as current score
+    - If User does not exist:
+        - Create user (POST endpoint)
+        - Set current score to 0
+    - Set universal username variable
+    - Redirect to game page, pass both username and current score variables.
+- "Leaderboard button"
+    - Redirects to leaderboard page
+
+Game Page
+- Display Score on left, Username on right
+- "Home" button
+    - Redirects to index/login page
+
+- Questions
+    -Display Question
+    -If Question is answered correctly
+        - Send request to "correct" PATCH endpoint 
+        - Increment score by 1
+    -If Question is answered incorrectly
+        - Send request to "incorrect" PATCH endpoint
+    -Loop
+
+- Delete my account button
+    - Call DELETE endpoint
+    - Redirect to index/login page
+
+
+Leaderboard Page
+- Display Leaderboard
+    - Call Leaderboard GET endpoint
+    - Display data from endpoint on page
+- "Home" button
+    - redirects to index/login page

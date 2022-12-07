@@ -28,7 +28,14 @@ USERS endpoints
         // Success
         {
             status: 200,
-            message: "${Username} was succesfully created"
+            message: "${Username} was succesfully created",
+            user: {
+                "username":"Alan",
+                "number_attempts":0,
+                "number_correct":0,
+                "created_at":"2022-12-07T04:46:53.000Z",
+                "updated_at":"2022-12-07T06:50:52.000Z"
+            }
         },
         // Failed (Bad Request error)
         {
@@ -59,7 +66,14 @@ USERS endpoints
         // Success
         {
             status: 200,
-            message: "${Username} was succesfully updated."
+            message: "${Username} was succesfully updated.",
+            user: {
+                "username":"Alan",
+                "number_attempts":8,
+                "number_correct":7,
+                "created_at":"2022-12-07T04:46:53.000Z",
+                "updated_at":"2022-12-07T06:50:52.000Z"
+            }
         },
         // Failed (Bad Request error)
         {
@@ -74,7 +88,14 @@ USERS endpoints
         // Success
         {
             status: 200,
-            message: "${Username} was succesfully updated."
+            message: "${Username} was succesfully updated.",
+            user: {
+                "username":"Alan",
+                "number_attempts":8,
+                "number_correct":7,
+                "created_at":"2022-12-07T04:46:53.000Z",
+                "updated_at":"2022-12-07T06:50:52.000Z"
+            }
         },
         // Failed (Bad Request error)
         {
@@ -88,7 +109,8 @@ USERS endpoints
     Get 5 top scoring users
 
     Output (List in JSON format):
-        [
+        
+        {users: [
             {
                 "username":"Alan",
                 "number_attempts":8,
@@ -105,4 +127,4 @@ USERS endpoints
             },
             ....
             ....
-        ]
+        ]}
