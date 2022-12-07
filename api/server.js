@@ -50,7 +50,7 @@ app.post('/app/users/:username', async(req, res) => {
 
     const query = `INSERT INTO users(username) VALUES ('${username}')`;
     try {
-        await execute(query);
+        await execute(query)
     } catch (error) {
         console.log(error);
         res.status(400).send({
@@ -65,8 +65,7 @@ app.post('/app/users/:username', async(req, res) => {
         message: `${username} was successfully created`,
         user: user_data
     })
-});
-
+})
 // PATCH: update score of user when they give a correct answer
 app.patch('/app/users/:username/correct', async(req, res) => {
     const username = req.params.username;
