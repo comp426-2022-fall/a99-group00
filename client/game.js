@@ -111,5 +111,7 @@ choices.forEach((choice) => { //determine if answer is correct or incorrect
 incrementScore = (num) => { //update scores
     score += num;
     scoreText.innerText = score;
-    
+    var username1 = sessionStorage.getItem("username1");
+    console.log(username1);
 };
+
