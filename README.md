@@ -9,6 +9,7 @@
 Our game is called Trivia Dash and is a web application that allows the user to register a new account or log in with a preexisting account using their username. The gameplay takes the user through trivia questions multiple choice style and records their score. The game also displays a progress bar at the top of the screen as well as a leaderboard screen that tracks and ranks the last five gameplays. 
 
 ## Demo Video
+https://youtu.be/mVCJlJf04zY
 
 ## Set Up
 
