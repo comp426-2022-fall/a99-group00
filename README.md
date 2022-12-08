@@ -35,10 +35,6 @@ For Webpage/Frontend planning visit https://github.com/comp426-2022-fall/a99-gro
 
 For more planning + meeting notes visit https://github.com/orgs/comp426-2022-fall/teams/group-00
 
-
-5. Create a project under the **Projects** tab. Use this to manage your planning. Create a To-do list, etc. Explore the tools available and user them to manage your project.
-10. Use **Issues** to identify and track bugs and also to communicate about various aspects of the project.
-
 ## Team mangement
 Back end + Database Lead: Alan Wang <br>
 Front end + Design Lead: Areeba Khokhar <br>
