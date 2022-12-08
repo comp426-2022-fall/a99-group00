@@ -34,6 +34,18 @@ loginUser = async() => {
     // If username is an empty string, display to user that name must be filled
 
     // Make a GET request with user
+    const endpoint = "http://localhost:9000/app/users/" + username;
+    const options = { method: "GET" }
+
+    fetch(endpoint, options)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data)
+
+
+    });
+
+    console.log("hi");
 
     // If user does not exist, display to user that account does not exist
 
@@ -52,4 +64,18 @@ loginUser = async() => {
 
     // const username = sessionStorage.getItem("username1");
     // sessionStorage.setItem("username", username);
+}
+
+registerUser = async() => {
+    // Get Username in textbox
+    const username = document.getElementById('username').value;
+    console.log(username);
+
+}
+
+deleteUser = async() => {
+    // Get Username in textbox
+    const username = document.getElementById('username').value;
+    console.log(username);
+
 }
