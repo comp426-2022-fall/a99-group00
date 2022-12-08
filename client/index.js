@@ -51,3 +51,11 @@ loginUser = async() => {
     // const username = sessionStorage.getItem("username1");
     // sessionStorage.setItem("username", username);
 }
+
+registerUser = async() => {
+
+}
+
+deleteUser = async() => {
+
+}
