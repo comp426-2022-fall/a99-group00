@@ -26,6 +26,7 @@ findName = async (e) => {
     }
 }
 
+// Implements functionality of Login page
 loginUser = async() => {
     // Get Username in textbox
     const username = document.getElementById('username').value;
@@ -55,6 +56,7 @@ loginUser = async() => {
     window.location.replace("game.html");
 }
 
+// Implements functionality of register user page
 registerUser = async() => {
     // Get Username in textbox
     const username = document.getElementById('username').value;
@@ -62,9 +64,28 @@ registerUser = async() => {
 
 }
 
+// Implements functionality of delete user page
 deleteUser = async() => {
     // Get Username in textbox
     const username = document.getElementById('username').value;
     console.log(username);
 
+    // If username is an empty string, display to user that name must be filled
+    if (username === "") {
+        document.getElementById("message").innerHTML = "Please enter a valid username.";
+        return;
+    }
+
+    // Make a GET request with user
+    const endpoint = "http://localhost:9000/app/users/" + username;
+    const options = { method: "DELETE" }
+    const response = await fetch(endpoint, options);
+    const data = await response.json();
+
+    // If user does not exist, display to user that account does not exist
+    if (data.status == 400) {
+        document.getElementById("message").innerHTML = "User does not Exist.";
+    } else if (data.status == 200) {
+        document.getElementById("message").innerHTML = "User was successfully deleted.";
+    }
 }
