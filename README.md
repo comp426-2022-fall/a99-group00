@@ -8,7 +8,7 @@
 
 Our game is called Trivia Dash and is a web application that allows the user to register a new account or log in with a preexisting account using their username. The gameplay takes the user through trivia questions multiple choice style and records their score. The game also displays a progress bar at the top of the screen as well as a leaderboard screen that tracks and ranks the last five gameplays. 
 
-##Demo Video
+## Demo Video
 
 ## Set Up
 
@@ -21,11 +21,11 @@ Our game is called Trivia Dash and is a web application that allows the user to 
 7. right click in index.html and select Open Live Server
 
 ## Documentation
-For API documentation visit(https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/api_plan.txt)<br>
-For Database documentation visit (https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/database_plan.txt)<br>
-For Webpage/Frontend planning visit (https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/webpage_plan.txt)
+For API documentation visit https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/api_plan.txt<br>
+For Database documentation visit https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/database_plan.txt<br>
+For Webpage/Frontend planning visit https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/webpage_plan.txt
 
-For more planning + meeting notes visit (https://github.com/orgs/comp426-2022-fall/teams/group-00)
+For more planning + meeting notes visit https://github.com/orgs/comp426-2022-fall/teams/group-00
 
 
 5. Create a project under the **Projects** tab. Use this to manage your planning. Create a To-do list, etc. Explore the tools available and user them to manage your project.
