@@ -1,3 +1,5 @@
+var username1 = sessionStorage.setItem("username1", document.getElementById('loginUsername').value);
+
 createUser = async (e) => {
     try {
         await fetch("http://localhost:9000/app/users/"+document.getElementById('loginUsername').value, {
@@ -50,12 +52,4 @@ loginUser = async() => {
 
     // const username = sessionStorage.getItem("username1");
     // sessionStorage.setItem("username", username);
-}
-
-registerUser = async() => {
-
-}
-
-deleteUser = async() => {
-
 }
