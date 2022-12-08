@@ -17,8 +17,8 @@ Our game is called Trivia Dash and is a web application that allows the user to 
 4. run npm install
 
 ## Documentation
-For API documentation visit(https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/api_plan.txt)
-For Database documentation visit (https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/database_plan.txt)
+For API documentation visit(https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/api_plan.txt)<br>
+For Database documentation visit (https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/database_plan.txt)<br>
 For Webpage/Frontend planning visit (https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/webpage_plan.txt)
 
 
