@@ -1,33 +1,9 @@
 // var username1 = sessionStorage.setItem("username1", document.getElementById('loginUsername').value);
 
-createUser = async (e) => {
-    try {
-        await fetch("http://localhost:9000/app/users/"+document.getElementById('loginUsername').value, {
-            method: 'POST'
-        })
-    } catch (err) {
-        console.log(err)
-    }
-};
-
-findName = async (e) => {
-    try {
-        await fetch("http://localhost:9000/app/users/"+document.getElementById('loginUsername').value, {
-            method: "GET",
-            mode:"no-cors",
-            header: {
-            },
-        }).then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-        })
-    } catch (err) {
-        console.log(err)
-    }
-}
-
 // Implements functionality of Login page
 loginUser = async() => {
+    document.getElementById("message").innerHTML = "Loading";
+
     // Get Username in textbox
     const username = document.getElementById('username').value;
     console.log(username);
@@ -58,14 +34,45 @@ loginUser = async() => {
 
 // Implements functionality of register user page
 registerUser = async() => {
+    document.getElementById("message").innerHTML = "Loading";
+
     // Get Username in textbox
     const username = document.getElementById('username').value;
     console.log(username);
+
+    // If username is an empty string, display to user that name must be filled
+    if (username === "") {
+        document.getElementById("message").innerHTML = "Please enter a valid username.";
+        return;
+    }
+
+    // Make a GET request with user
+    const endpoint = "http://localhost:9000/app/users/" + username;
+    const options = { method: "GET" }
+    const response = await fetch(endpoint, options);
+    const data = await response.json();
+
+    // If user exists, display to user that username is taken
+    if (data.exists) {
+        document.getElementById("message").innerHTML = "This username is taken.";
+        return;
+    }
+
+    const post_response = await fetch(endpoint, { method: "POST" });
+    const post_data = await post_response.json();
+
+    if (post_data.status == 200) {
+        sessionStorage.setItem("username", username);
+        sessionStorage.setItem("points", post_data.user.number_correct);
+        window.location.replace("game.html");
+    }
 
 }
 
 // Implements functionality of delete user page
 deleteUser = async() => {
+    document.getElementById("message").innerHTML = "Loading";
+    
     // Get Username in textbox
     const username = document.getElementById('username').value;
     console.log(username);
