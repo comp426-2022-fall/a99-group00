@@ -16,11 +16,17 @@ Our game is called Trivia Dash and is a web application that allows the user to 
 2. cd into api folder
 3. run node server.js
 4. run npm install
-5. navigate to localhost:[port]/ in your browser
-OR
+5. navigate to localhost:[port]/ in your browser<br>
+OR <br>
 6. install live server IDE extension (vscode)
 7. navigate to index.html file
 8. right click in index.html and select Open Live Server
+9. Ctrl+C to terminate
+
+## Dependencies
+1. Express <br>
+2. Minimist <br>
+3. Cors <br>
 
 ## Documentation
 For API documentation visit https://github.com/comp426-2022-fall/a99-group00/blob/main/docs/api_plan.txt<br>
