@@ -1,4 +1,4 @@
-var username1 = sessionStorage.setItem("username1", document.getElementById('loginUsername').value);
+// var username1 = sessionStorage.setItem("username1", document.getElementById('loginUsername').value);
 
 createUser = async (e) => {
     try {
@@ -32,38 +32,27 @@ loginUser = async() => {
     console.log(username);
 
     // If username is an empty string, display to user that name must be filled
+    if (username === "") {
+        document.getElementById("message").innerHTML = "Please enter a valid username.";
+        return;
+    }
 
     // Make a GET request with user
     const endpoint = "http://localhost:9000/app/users/" + username;
     const options = { method: "GET" }
-
-    fetch(endpoint, options)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-
-
-    });
-
-    console.log("hi");
+    const response = await fetch(endpoint, options);
+    const data = await response.json();
 
     // If user does not exist, display to user that account does not exist
+    if (!data.exists) {
+        document.getElementById("message").innerHTML = "User does not Exist.";
+        return;
+    }
 
-
-    // If user exists, get current points of user, pass on username, and redirect to game.html
-    // {
-    //     exists: True/False (false if does not exist)
-    //     user: {
-    //         "username":"Alan",
-    //         "number_attempts":8,
-    //         "number_correct":7,
-    //         "created_at":"2022-12-07T04:46:53.000Z",
-    //         "updated_at":"2022-12-07T06:50:52.000Z"
-    //     } //null if does not exist
-    // }
-
-    // const username = sessionStorage.getItem("username1");
-    // sessionStorage.setItem("username", username);
+    // If user exists, pass on username and number of points, and redirect to game.html
+    sessionStorage.setItem("username", username);
+    sessionStorage.setItem("points", data.user.number_correct);
+    window.location.replace("game.html");
 }
 
 registerUser = async() => {
