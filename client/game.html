@@ -21,14 +21,20 @@
               <div id="progressBarFull"></div>
             </div>
           </div>
-          <script>
-            document.write(sessionStorage.getItem("username"))
-          </script>
           <div id="hud-item">
-            <p class="hud-prefix">
-              Score
-            </p>
             <h1 class="hud-main-text" id="score">
+              <p class="hud-prefix">
+                <br>
+                Welcome
+              </p>
+              <script>
+                document.write(sessionStorage.getItem("username"))
+              </script>
+              <br>
+              <p class="hud-prefix">
+                <br>
+                Score
+              </p>
               <script>
                 document.write(sessionStorage.getItem("points"))
               </script>
