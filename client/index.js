@@ -1,4 +1,3 @@
-// var username1 = sessionStorage.setItem("username1", document.getElementById('loginUsername').value);
 
 // Implements functionality of Login page
 loginUser = async() => {
@@ -27,8 +26,8 @@ loginUser = async() => {
     }
 
     // If user exists, pass on username and number of points, and redirect to game.html
-    sessionStorage.setItem("username", username);
-    sessionStorage.setItem("points", data.user.number_correct);
+    sessionStorage.setItem("username", username);     //THIS STORES USER BASICALLY AS PUBLIC VARIABLE
+    sessionStorage.setItem("points", JSON.stringify(data.user.number_correct));
     window.location.replace("game.html");
 }
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,12 +21,17 @@
               <div id="progressBarFull"></div>
             </div>
           </div>
+          <script>
+            document.write(sessionStorage.getItem("username"))
+          </script>
           <div id="hud-item">
             <p class="hud-prefix">
               Score
             </p>
             <h1 class="hud-main-text" id="score">
-              0
+              <script>
+                document.write(sessionStorage.getItem("points"))
+              </script>
             </h1>
             <a class="btn" href="index.html">Go Home</a>
           <br>
